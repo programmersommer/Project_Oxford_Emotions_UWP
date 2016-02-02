@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="Emotions_analyser.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Emotions_analyser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded" RequestedTheme="Light" Background="White">
+
+    <ScrollViewer>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+                <Button x:Name="btnStartPreview" Background="Gray" Click="btnStartPreview_Click" Margin="0,0,0,0" Content="Start preview"/>
+                <Button x:Name="btnTakePhoto" Background="Gray" Click="btnTakePhoto_Click" Margin="10,0,0,0" Content="Take a photo"/>
+                <ProgressRing x:Name="progring" IsActive="False" Width="25" Height="25" Margin="10,0,0,0" />
+            </StackPanel>
+
+            <Grid>
+                <Image x:Name="captureImage" Width="400" Height="400" Visibility="Visible"/>
+                <CaptureElement x:Name="previewElement" Width="400" Height="400" Visibility="Visible" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" TextAlignment="Right" 
+                           Margin="0,0,5,0">Happiness</TextBlock>
+                <ProgressBar Grid.Row="0" Grid.Column="1" IsIndeterminate="False" Width="200" Maximum="1" 
+                             SmallChange="0.0001" LargeChange="0.1" Value="{Binding Scores.Happiness, Mode=OneWay}"  />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Foreground="Black" FontSize="14" TextAlignment="Right" 
+                           Margin="0,0,5,0">Anger</TextBlock>
+                <ProgressBar Grid.Row="1" Grid.Column="1" IsIndeterminate="False" Width="200" Maximum="1" 
+                             SmallChange="0.0001" LargeChange="0.1" Value="{Binding Scores.Anger, Mode=OneWay}"  />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Foreground="Black" FontSize="14" TextAlignment="Right" 
+                           Margin="0,0,5,0">Contempt</TextBlock>
+                <ProgressBar Grid.Row="2" Grid.Column="1" IsIndeterminate="False" Width="200" Maximum="1" 
+                             SmallChange="0.0001" LargeChange="0.1" Value="{Binding Scores.Contempt, Mode=OneWay}"  />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Foreground="Black" FontSize="14" TextAlignment="Right" 
+                           Margin="0,0,5,0">Disgust</TextBlock>
+                <ProgressBar Grid.Row="3" Grid.Column="1" IsIndeterminate="False" Width="200" Maximum="1" 
+                             SmallChange="0.0001" LargeChange="0.1" Value="{Binding Scores.Disgust, Mode=OneWay}"  />
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Foreground="Black" FontSize="14" TextAlignment="Right" 
+                           Margin="0,0,5,0">Fear</TextBlock>
+                <ProgressBar Grid.Row="4" Grid.Column="1" IsIndeterminate="False" Width="200" Maximum="1" 
+                             SmallChange="0.0001" LargeChange="0.1" Value="{Binding Scores.Fear, Mode=OneWay}"  />
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Foreground="Black" FontSize="14" TextAlignment="Right" 
+                           Margin="0,0,5,0">Neutral</TextBlock>
+                <ProgressBar Grid.Row="5" Grid.Column="1" IsIndeterminate="False" Width="200" Maximum="1" 
+                             SmallChange="0.0001" LargeChange="0.1" Value="{Binding Scores.Neutral, Mode=OneWay}"  />
+
+                <TextBlock Grid.Row="6" Grid.Column="0" Foreground="Black" FontSize="14" TextAlignment="Right" 
+                           Margin="0,0,5,0">Sadness</TextBlock>
+                <ProgressBar Grid.Row="6" Grid.Column="1" IsIndeterminate="False" Width="200" Maximum="1" 
+                             SmallChange="0.0001" LargeChange="0.1" Value="{Binding Scores.Sadness, Mode=OneWay}"  />
+
+                <TextBlock Grid.Row="7" Grid.Column="0" Foreground="Black" FontSize="14" TextAlignment="Right" 
+                           Margin="0,0,5,0">Surprise</TextBlock>
+                <ProgressBar Grid.Row="7" Grid.Column="1" IsIndeterminate="False" Width="200" Maximum="1" 
+                             SmallChange="0.0001" LargeChange="0.1" Value="{Binding Scores.Surprise, Mode=OneWay}"  />
+
+            </Grid>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>
