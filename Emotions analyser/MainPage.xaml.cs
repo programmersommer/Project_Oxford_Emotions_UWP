@@ -91,6 +91,7 @@ namespace Emotions_analyser
                 {
                     EmotionServiceClient emotionServiceClient =
                             new EmotionServiceClient("12345678901234567890123456789012");
+        // replace 12345678901234567890123456789012 with your key taken from https://www.projectoxford.ai/Subscription/
                     emotionResult = await emotionServiceClient.RecognizeAsync(st);
                 }
                 catch { }
