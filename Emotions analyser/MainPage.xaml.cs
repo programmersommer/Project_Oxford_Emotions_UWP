@@ -85,8 +85,7 @@ namespace Emotions_analyser
             previewElement.Visibility = Visibility.Collapsed;
 
             progring.IsActive = true;
-            await Task.Run(async () =>
-            {
+
                 try
                 {
                     EmotionServiceClient emotionServiceClient =
@@ -95,7 +94,7 @@ namespace Emotions_analyser
                     emotionResult = await emotionServiceClient.RecognizeAsync(st);
                 }
                 catch { }
-            });
+
             progring.IsActive = false;
 
             if ((emotionResult != null) && (emotionResult.Length > 0))
